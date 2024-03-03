@@ -1,6 +1,6 @@
 {
     "name": "developersalliance/module-wholesale",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Magento 2 Configurable Product Grid View is the helpful extension which displays all configurable products more clearly and fully in a table grid view",
     "type": "magento2-module",
     "require": {
