@@ -18,7 +18,7 @@ The Devall_Wholesale extension serves as a valuable tool, showcasing all simple 
 1. Install the module via Composer by running the following command in the Magento 2 root directory:
 
    ```
-   composer require devall/module-wholesaler-product-grid
+   composer require developersalliance/module-wholesale
    ```
 
 2. Run the Magento upgrade command to install the module:
