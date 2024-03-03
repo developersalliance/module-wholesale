@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Developers-Alliance team
+ * @copyright Copyright (c) 2024 Developers-alliance (https://www.developers-alliance.com)
+ * @package Wholesale Order Grid for Magento 2
+ */-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Devall_Wholesale">
+        <sequence>
+            <module name="Magento_Swatches"/>
+            <module name="Magento_Catalog"/>
+            <module name="Magento_Quote"/>
+            <module name="Magento_Customer"/>
+            <module name="Magento_Ui"/>
+            <module name="DevAll_Base"/>
+        </sequence>
+    </module>
+</config>
+

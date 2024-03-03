@@ -1,0 +1,84 @@
+<?php
+/**
+ * @author Developers-Alliance team
+ * @copyright Copyright (c) 2024 Developers-alliance (https://www.developers-alliance.com)
+ * @package Wholesale Order Grid for Magento 2
+ */
+
+/** @var $block Magento\Framework\View\Element\Template */
+/** @var $viewModel Devall\Wholesale\ViewModel\RendererView */
+/** @var $escaper Magento\Framework\Escaper */
+
+$blockInstance = $this->getLayout()->createBlock('Magento\Swatches\Block\Product\Renderer\Configurable');
+
+$viewModel = $block->getViewModel();
+$attributes = $viewModel->getSwatchData();
+?>
+
+<div id="devall-summary" style="display: none">
+    <div id="devall-summary-title">
+        <span class="devall-detail-label"><?= $escaper->escapeHtml(__('Total Summary')) ?></span>
+    </div>
+    <table id="devall-detail-total">
+        <thead>
+        <tr>
+            <th><?= $escaper->escapeHtml(__('SKU')) ?></th>
+            <th><?= $escaper->escapeHtml(__('Attribute')) ?></th>
+            <th><?= $escaper->escapeHtml(__('Qty')) ?></th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+        <tr>
+            <td colspan="4"><hr></td>
+        </tr>
+        <tr>
+            <td class="devall-detail-label"><?= $escaper->escapeHtml(__('Total Qty')) ?></td>
+            <td></td>
+            <td class="devall-detail-qty"></td>
+            <td></td>
+        </tr>
+        <tr class="devall-style-total">
+            <td class="devall-detail-label"><?= $escaper->escapeHtml(__('Total')) ?></td>
+            <td></td>
+            <td class="devall-detail-sum"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4"><hr></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="swatch-opt" data-role="swatch-options">
+    <table id="swatch-devall-b2b" class="swatch-opt-b2b">
+        <tr>
+            <th><?= $escaper->escapeHtml(__('Size')) ?></th>
+            <th><?= $escaper->escapeHtml(__('Color')) ?> </th>
+            <th><?= $escaper->escapeHtml(__('Price')) ?></th>
+            <th><?= $escaper->escapeHtml(__('Stock Qty')) ?></th>
+            <th><?= $escaper->escapeHtml(__('Qty')) ?></th>
+            <th><?= $escaper->escapeHtml(__('Subtotal')) ?></th>
+        </tr>
+    </table>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-options]": {
+            "Devall_Wholesale/js/swatch-renderer-devall": {
+                "jsonConfig": <?= /* @noEscape */ $swatchOptions = $blockInstance->getJsonConfig() ?>,
+                "jsonSwatchConfig": <?= /* @noEscape */ $swatchOptions = $blockInstance->getJsonSwatchConfig() ?>,
+                "mediaCallback": "<?= $escaper->escapeJs($escaper->escapeUrl($blockInstance->getMediaCallback())) ?>",
+                "gallerySwitchStrategy": "<?= $escaper->escapeJs($blockInstance->getVar('gallery_switch_strategy', 'Magento_ConfigurableProduct')) ?: 'replace'; ?>",
+                "jsonSwatchImageSizeConfig": <?= /* @noEscape */ $blockInstance->getJsonSwatchSizeConfig() ?>,
+                "showTooltip": <?= $escaper->escapeJs($viewModel->getShowSwatchTooltip()) ?>,
+                "childData": <?= /* @noEscape */ $attributes ?>
+            }
+        },
+        "*" : {
+            "Magento_Swatches/js/catalog-add-to-cart": {}
+        }
+    }
+</script>

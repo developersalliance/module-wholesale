@@ -1,0 +1,103 @@
+/**
+ * @author Developers-Alliance team
+ * @copyright Copyright (c) 2024 Developers-alliance (https://www.developers-alliance.com)
+ * @package Wholesale Order Grid for Magento 2
+ */
+
+#swatch-devall-b2b {
+    width: max-content;
+    display: block;
+    text-align: left;
+    padding: 10px 0;
+    max-height: 500px;
+    overflow-y: auto;
+    min-width: 460px;
+    margin: 0;
+    border-bottom: solid;
+
+    .devallWhole-qty {
+        position: relative;
+        width: 50px;
+        min-width: 50px;
+
+
+        #devall-number {
+            display: inline-grid;
+            position: absolute;
+            cursor: pointer;
+            height: 32px;
+            right: 8px;
+
+            > div {
+                background: #fff;
+                text-align: center;
+                line-height: 15px;
+                width: 20px;
+                height: 14px;
+                border-radius: 3px;
+                border: 1px solid #c2c2c2;
+            }
+
+            .devall-inc:before {
+                content: '';
+                height: 15px;
+                width: 15px;
+                position: absolute;
+                left: 33%;
+                background: url('@{baseDir}Devall_Wholesale/images/up-icon.svg') no-repeat;
+            }
+
+            .devall-dec:before {
+                content: '';
+                height: 15px;
+                width: 15px;
+                position: absolute;
+                left: 33%;
+                background: url('@{baseDir}Devall_Wholesale/images/down-icon.svg') no-repeat;
+            }
+        }
+    }
+
+    tr th {
+        background-color: black;
+        color: white;
+        border: 1px solid #f0f0f0;
+    }
+
+    tr td {
+        border: 1px solid #f0f0f0;
+    }
+}
+
+#devall-summary {
+    .devall-detail-label {
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .devall-detail-qty {
+        font-weight: 600;
+        font-size: 20px;
+        text-align: right;
+    }
+
+    .devall-detail-sum {
+        font-weight: 600;
+        font-size: 20px;
+        text-align: right;
+    }
+
+    hr {
+        margin: 0;
+    }
+
+    .devall-delete-detail:after {
+        content: '';
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        position: absolute;
+        background: url('@{baseDir}Devall_Wholesale/images/delete.svg') no-repeat;
+    }
+}
+

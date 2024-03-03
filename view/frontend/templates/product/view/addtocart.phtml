@@ -1,0 +1,61 @@
+<?php
+/**
+ * @author Developers-Alliance team
+ * @copyright Copyright (c) 2024 Developers-alliance (https://www.developers-alliance.com)
+ * @package Wholesale Order Grid for Magento 2
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+/** @var $viewModel Devall\Wholesale\ViewModel\AddToCartView */
+/** @var $escaper Magento\Framework\Escaper */
+
+$viewModel = $block->getViewModel();
+$isEnabled = $viewModel->isEnabled();
+$_product = $block->getProduct();
+$buttonTitle = __('Add to Cart');
+?>
+<?php if ($_product->isSaleable()) :?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if (!$isEnabled): ?>
+                <?php if ($block->shouldRenderQuantity()) :?>
+                    <div class="field qty">
+                        <label class="label" for="qty"><span><?= $escaper->escapeHtml(__('Qty')) ?></span></label>
+                        <div class="control">
+                            <input type="number"
+                                   name="qty"
+                                   id="qty"
+                                   min="0"
+                                   value="<?= $block->getProductDefaultQty() * 1 ?>"
+                                   title="<?= $escaper->escapeHtmlAttr(__('Qty')) ?>"
+                                   class="input-text qty"
+                                   data-validate="<?= $escaper->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                            />
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button" disabled>
+                    <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        },
+        "*": {
+          "Magento_Catalog/js/validate-product": {
+             "isEnabled": <?= /* @noEscape */ json_encode($isEnabled) ?>
+          }
+        }
+    }
+</script>

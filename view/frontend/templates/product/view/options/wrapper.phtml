@@ -1,0 +1,28 @@
+<?php
+/**
+ * @author Developers-Alliance team
+ * @copyright Copyright (c) 2024 Developers-alliance (https://www.developers-alliance.com)
+ * @package Wholesale Order Grid for Magento 2
+ */
+
+/** @var $block Magento\Catalog\Block\Product\View */
+/** @var $viewModel Devall\Wholesale\ViewModel\WrapperView */
+/** @var $escaper Magento\Framework\Escaper */
+
+$viewModel = $block->getViewModel();
+$matrixTemplate = $viewModel->getRendererTemplate();
+if ($matrixTemplate == '') {
+    $block->unsetChild("devall.matrix");
+}
+?>
+<?php
+$required = '';
+if ($block->hasRequiredOptions()) {
+    $required = ' data-hasrequired="' . $escaper->escapeHtmlAttr(__('* Required Fields')) . '"';
+}
+?>
+<div class="product-options-wrapper" id="product-options-wrapper"<?= /* @noEscape */ $required ?>>
+    <div class="fieldset" tabindex="0">
+        <?= $block->getChildHtml($matrixTemplate, true); ?>
+    </div>
+</div>

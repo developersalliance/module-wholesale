@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Developers-Alliance team
+ * @copyright Copyright (c) 2024 Developers-alliance (https://www.developers-alliance.com)
+ * @package Wholesale Order Grid for Magento 2
+ */-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock class="Magento\Catalog\Block\Product\View" name="product.info.addtocart.additional"  template="Devall_Wholesale::product/view/addtocart.phtml">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Devall\Wholesale\ViewModel\AddToCartView</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.info.options.wrapper">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Devall_Wholesale::product/view/options/wrapper.phtml</argument>
+            </action>
+            <arguments>
+                <argument name="view_model" xsi:type="object">Devall\Wholesale\ViewModel\WrapperView</argument>
+            </arguments>
+            <block class="Magento\Framework\View\Element\Template" as="devall.matrix" name="product.renderer.matrix" template="Devall_Wholesale::product/view/renderer.phtml" >
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Devall\Wholesale\ViewModel\RendererView</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
+
