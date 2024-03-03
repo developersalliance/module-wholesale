@@ -1,5 +1,5 @@
 {
-    "name": "devall/module-wholesaler-product-grid",
+    "name": "developersalliance/module-wholesale",
     "version": "1.0.1",
     "description": "Magento 2 Configurable Product Grid View is the helpful extension which displays all configurable products more clearly and fully in a table grid view",
     "type": "magento2-module",
