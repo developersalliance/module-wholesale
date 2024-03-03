@@ -41,4 +41,5 @@ The Devall_Wholesale extension serves as a valuable tool, showcasing all simple 
 ## License
 
 This module is licensed under the [MIT License](LICENSE).   
+
 ---
