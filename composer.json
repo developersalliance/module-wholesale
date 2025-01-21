@@ -4,7 +4,7 @@
     "description": "Magento 2 Configurable Product Grid View is the helpful extension which displays all configurable products more clearly and fully in a table grid view",
     "type": "magento2-module",
     "require": {
-        "php": ">=7.3 <8.2",
+        "php": ">=7.3 <8.3",
         "magento/module-catalog": "*",
         "magento/module-swatches": "*",
         "magento/module-ui": "*",
